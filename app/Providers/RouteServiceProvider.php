@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace SummitCMS\Providers;
 
 use Illuminate\Routing\Router;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
@@ -14,7 +14,8 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    protected $namespace = 'App\Http\Controllers';
+    protected $namespace = 'SummitCMS\Http\Controllers';
+    protected $apiNamespace = 'SummitCMS\Http\Controllers\Api';
 
     /**
      * Define your route model bindings, pattern filters, etc.
@@ -38,7 +39,10 @@ class RouteServiceProvider extends ServiceProvider
     public function map(Router $router)
     {
         $router->group(['namespace' => $this->namespace], function ($router) {
-            require app_path('Http/routes.php');
+            require app_path('Http/Routes/routes.php');
+        });
+        $router->group(['namespace' => $this->apiNamespace], function ($router) {
+            require app_path('Http/Routes/api.php');
         });
     }
 }

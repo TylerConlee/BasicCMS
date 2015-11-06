@@ -140,10 +140,10 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        SummitCMS\Providers\AppServiceProvider::class,
+        SummitCMS\Providers\AuthServiceProvider::class,
+        SummitCMS\Providers\EventServiceProvider::class,
+        SummitCMS\Providers\RouteServiceProvider::class,
 
     ],
 

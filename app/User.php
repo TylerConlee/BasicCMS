@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace SummitCMS;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;

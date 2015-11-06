@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Events;
+namespace SummitCMS\Events;
 
 abstract class Event
 {

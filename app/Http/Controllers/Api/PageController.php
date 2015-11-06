@@ -1,22 +1,23 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace SummitCMS\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
-
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
+use SummitCMS\Page;
+use SummitCMS\Http\Requests;
+use SummitCMS\Http\Controllers\Controller;
 
 class PageController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of all pages, similar to the overview page of a blog, or a sitemap.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
+        $page = new Page;
+        $page->helloWorld();
     }
 
     /**
@@ -26,7 +27,7 @@ class PageController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -37,7 +38,10 @@ class PageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $page = new Page;
+        $page->name = $request->name;
+        $page->accesslevel = $request->accesslevel;
+        $page->save();
     }
 
     /**

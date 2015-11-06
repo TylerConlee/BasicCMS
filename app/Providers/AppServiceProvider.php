@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace SummitCMS\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

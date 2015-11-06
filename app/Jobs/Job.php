@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Jobs;
+namespace SummitCMS\Jobs;
 
 use Illuminate\Bus\Queueable;
 
