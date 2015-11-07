@@ -5,9 +5,10 @@ namespace SummitCMS\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use SummitCMS\Page;
 use SummitCMS\Http\Requests;
+use SummitCMS\Http\Controllers\Api\ApiController;
 use SummitCMS\Http\Controllers\Controller;
 
-class PageController extends Controller
+class PageController extends ApiController
 {
     /**
      * Display a listing of all pages, similar to the overview page of a blog, or a sitemap.
@@ -39,7 +40,7 @@ class PageController extends Controller
     public function store(Request $request)
     {
         $page = new Page;
-        $page->name = $request->name;
+        $page->uri = $request->uri;
         $page->accesslevel = $request->accesslevel;
         $page->save();
     }
