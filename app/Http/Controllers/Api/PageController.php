@@ -17,8 +17,8 @@ class PageController extends ApiController
      */
     public function index()
     {
-        $page = new Page;
-        $page->helloWorld();
+        $pages = Page::all();
+        return json_encode($pages);
     }
 
     /**
@@ -53,7 +53,8 @@ class PageController extends ApiController
      */
     public function show($id)
     {
-        //
+        $page = Page::findOrFail($id);
+        return json_encode($page);
     }
 
     /**
