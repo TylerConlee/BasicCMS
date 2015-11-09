@@ -7,6 +7,7 @@ use SummitCMS\Page;
 use SummitCMS\Http\Requests;
 use SummitCMS\Http\Controllers\Api\ApiController;
 use SummitCMS\Http\Controllers\Controller;
+use View;
 
 class PageController extends ApiController
 {
@@ -18,7 +19,7 @@ class PageController extends ApiController
     public function index()
     {
         $pages = Page::all();
-        return json_encode($pages);
+        return view('page.pages', ['page' => $pages]);
     }
 
     /**
@@ -28,7 +29,7 @@ class PageController extends ApiController
      */
     public function create()
     {
-
+        return View::make('page.create');
     }
 
     /**
@@ -43,6 +44,7 @@ class PageController extends ApiController
         $page->uri = $request->uri;
         $page->accesslevel = $request->accesslevel;
         $page->save();
+        return redirect('page/'.$page->id);
     }
 
     /**
@@ -54,7 +56,7 @@ class PageController extends ApiController
     public function show($id)
     {
         $page = Page::findOrFail($id);
-        return json_encode($page);
+        return view('page.pages', ['page' => $page]);
     }
 
     /**
@@ -77,7 +79,11 @@ class PageController extends ApiController
      */
     public function update(Request $request, $id)
     {
-        //
+        $page = Page::find($id);
+        $page->uri = $request->uri;
+        $page->accesslevel = $request->accesslevel;
+        $page->updated_at = date("Y-m-d H:i:s");
+        $page->save();
     }
 
     /**
@@ -88,6 +94,7 @@ class PageController extends ApiController
      */
     public function destroy($id)
     {
-        //
+        $page = Page::find($id);
+        $page->delete();
     }
 }
