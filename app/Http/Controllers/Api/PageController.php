@@ -67,7 +67,8 @@ class PageController extends ApiController
      */
     public function edit($id)
     {
-        //
+        $page = Page::findOrFail($id);
+        return view('page.edit', ['page' => json_decode($page)]);
     }
 
     /**
