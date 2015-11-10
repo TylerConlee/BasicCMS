@@ -2,12 +2,20 @@
 	<head>
 	</head>
 	<body>
-		{!!Form::open(array('url' => 'page'))!!}
-			{!! Form::label('uri', 'URI') !!}
-        	{!! Form::text('uri', Input::old('uri'), array('class' => 'form-control')) !!}
 
-        	{!! Form::label('accesslevel', 'Access Level') !!}
-        	{!! Form::text('accesslevel', Input::old('accesslevel'), array('class' => 'form-control')) !!}
+		{!!Form::open(array('url' => 'page'))!!}
+			<div>
+				{!! Form::label('title', 'Title') !!}
+	        	{!! Form::text('title', Input::old('title'), array('class' => 'form-control')) !!}
+        	</div>
+    		<div>
+        		{!! Form::label('accesslevel', 'Access Level') !!}
+        		{!! Form::text('accesslevel', Input::old('accesslevel'), array('class' => 'form-control')) !!}
+        	</div>
+        	<div>
+        		{!! Form::label('body', 'Body') !!}
+        		{!! Form::textarea('body', Input::old('body'), array('class' => 'form-control')) !!}
+        	</div>
 
 			{!! Form::submit('Create')!!}
 

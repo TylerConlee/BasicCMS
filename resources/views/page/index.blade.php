@@ -7,7 +7,7 @@
 			@foreach($page as $key => $value)
 		        <tr>
 		            <td>{{ $value->id }}</td>
-		            <td>{{ $value->uri }}</td>
+		            <td>{{ $value->title }}</td>
 		            <td>{{ $value->accesslevel }}</td>
 		            <td>{{ $value->created_at }}</td>
 		            <td>

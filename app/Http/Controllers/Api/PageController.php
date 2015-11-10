@@ -41,8 +41,9 @@ class PageController extends ApiController
     public function store(Request $request)
     {
         $page = new Page;
-        $page->uri = $request->uri;
+        $page->title = $request->title;
         $page->accesslevel = $request->accesslevel;
+        $page->body = $request->body;
         $page->save();
         return redirect('page/'.$page->id);
     }
@@ -68,7 +69,7 @@ class PageController extends ApiController
     public function edit($id)
     {
         $page = Page::findOrFail($id);
-        return view('page.edit', ['page' => json_decode($page)]);
+        return view('page.edit', ['page' => $page]);
     }
 
     /**
@@ -81,10 +82,12 @@ class PageController extends ApiController
     public function update(Request $request, $id)
     {
         $page = Page::find($id);
-        $page->uri = $request->uri;
+        $page->title = $request->title;
         $page->accesslevel = $request->accesslevel;
+        $page->body = $request->body;
         $page->updated_at = date("Y-m-d H:i:s");
         $page->save();
+        return redirect('page/'.$page->id);
     }
 
     /**
