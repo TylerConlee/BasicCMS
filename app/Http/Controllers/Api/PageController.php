@@ -19,7 +19,7 @@ class PageController extends ApiController
     public function index()
     {
         $pages = Page::all();
-        return view('page.pages', ['page' => $pages]);
+        return view('page.index', ['page' => $pages]);
     }
 
     /**
@@ -56,7 +56,7 @@ class PageController extends ApiController
     public function show($id)
     {
         $page = Page::findOrFail($id);
-        return view('page.pages', ['page' => $page]);
+        return view('page.show', ['page' => $page]);
     }
 
     /**
@@ -97,5 +97,6 @@ class PageController extends ApiController
     {
         $page = Page::find($id);
         $page->delete();
+        return redirect('page');
     }
 }
