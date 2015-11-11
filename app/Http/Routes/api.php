@@ -10,5 +10,6 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-Route::get('page/{slug}', 'PageController@show');
-Route::resource('page', 'PageController', ['except' => ['show']]);
+Route::get('admin', 'PageController@index');
+Route::get('{slug}', 'PageController@show');
+Route::resource('page', 'PageController', ['except' => ['index','show']]);

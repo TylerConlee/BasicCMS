@@ -17,7 +17,7 @@
 		                    {!! Form::submit('Delete this Page', array('class' => 'btn btn-warning')) !!}
 		                {!! Form::close() !!}
 
-		                <a class="btn btn-small btn-success" href="{{ URL::to('page/' . $value->slug) }}">Show this Page</a>
+		                <a class="btn btn-small btn-success" href="{{ URL::to($value->slug) }}">Show this Page</a>
 
 		                <a class="btn btn-small btn-info" href="{{ URL::to('page/' . $value->id . '/edit') }}">Edit this Page</a>
 

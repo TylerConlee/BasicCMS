@@ -46,7 +46,7 @@ class PageController extends ApiController
         $page->accesslevel = $request->accesslevel;
         $page->body = $request->body;
         $page->save();
-        return redirect('page/'.$page->id);
+        return redirect($page->slug);
     }
 
     /**
@@ -57,7 +57,7 @@ class PageController extends ApiController
      */
     public function show($slug)
     {
-        $page = Page::where('slug', $slug)->first();
+        $page = Page::where('slug', $slug)->firstOrFail();
         return view('page.show', ['page' => $page]);
     }
 
@@ -87,9 +87,8 @@ class PageController extends ApiController
         $page->slug = str_slug($request->title, "-");
         $page->accesslevel = $request->accesslevel;
         $page->body = $request->body;
-        $page->updated_at = date("Y-m-d H:i:s");
         $page->save();
-        return redirect('page/'.$page->slug);
+        return redirect($page->slug);
     }
 
     /**
@@ -102,6 +101,6 @@ class PageController extends ApiController
     {
         $page = Page::find($id);
         $page->delete();
-        return redirect('page');
+        return redirect('admin');
     }
 }
