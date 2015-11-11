@@ -42,6 +42,7 @@ class PageController extends ApiController
     {
         $page = new Page;
         $page->title = $request->title;
+        $page->slug = str_slug($request->title, "-");
         $page->accesslevel = $request->accesslevel;
         $page->body = $request->body;
         $page->save();
@@ -54,9 +55,9 @@ class PageController extends ApiController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        $page = Page::findOrFail($id);
+        $page = Page::where('slug', $slug)->first();
         return view('page.show', ['page' => $page]);
     }
 
@@ -83,11 +84,12 @@ class PageController extends ApiController
     {
         $page = Page::find($id);
         $page->title = $request->title;
+        $page->slug = str_slug($request->title, "-");
         $page->accesslevel = $request->accesslevel;
         $page->body = $request->body;
         $page->updated_at = date("Y-m-d H:i:s");
         $page->save();
-        return redirect('page/'.$page->id);
+        return redirect('page/'.$page->slug);
     }
 
     /**
