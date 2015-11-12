@@ -106,12 +106,23 @@ class PageController extends ApiController
         return redirect('admin');
     }
 
+
+    /**
+     * Displays the page for trashed items
+     * @return View
+     */
     public function trash() {
         $page = Page::onlyTrashed()
                 ->get();
         return view('page.trash', ['page' => $page]);
     }
 
+
+    /**
+     * Permanently removes the selected resource from storage
+     * @param  int $id ID of item being deleted
+     * @return Redirect
+     */
     public function delete($id) {
         Page::withTrashed()
         ->where('id', $id)
@@ -119,6 +130,11 @@ class PageController extends ApiController
         return redirect('admin');
     }
 
+    /**
+     * Restires resource and removes it from the trash
+     * @param  int $id ID of the item being restored
+     * @return Redirect
+     */
     public function restore($id) {
         Page::withTrashed()
         ->where('id', $id)
