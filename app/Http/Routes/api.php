@@ -13,4 +13,6 @@
 Route::get('admin', 'PageController@index');
 Route::get('admin/trash', 'PageController@trash');
 Route::get('{slug}', 'PageController@show');
-Route::resource('page', 'PageController', ['except' => ['index','show']]);
+Route::get('page/{id}/restore', 'PageController@restore');
+Route::post('page/{id}/delete', 'PageController@delete');
+Route::resource('page', 'PageController', ['except' => ['index','show', 'restore', 'delete']]);

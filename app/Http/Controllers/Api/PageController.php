@@ -105,4 +105,24 @@ class PageController extends ApiController
         $page->delete();
         return redirect('admin');
     }
+
+    public function trash() {
+        $page = Page::onlyTrashed()
+                ->get();
+        return view('page.trash', ['page' => $page]);
+    }
+
+    public function delete($id) {
+        Page::withTrashed()
+        ->where('id', $id)
+        ->forceDelete();
+        return redirect('admin');
+    }
+
+    public function restore($id) {
+        Page::withTrashed()
+        ->where('id', $id)
+        ->restore();
+        return redirect('admin');
+    }
 }

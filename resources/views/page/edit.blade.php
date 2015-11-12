@@ -2,7 +2,7 @@
 	<head>
 	</head>
 	<body>
-
+		<a class="btn btn-small btn-success" href="{{ URL::to('admin') }}">Admin</a>
 		{!! Form::model($page, array('route' => array('page.update', $page->id), 'method' => 'PUT')) !!}
 			<div>
 				{!! Form::label('title', 'Title') !!}

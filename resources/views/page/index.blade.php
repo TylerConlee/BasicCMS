@@ -3,6 +3,7 @@
 	</head>
 	<body>
 		<a class="btn btn-small btn-success" href="{{ URL::to('page/create') }}">Create Page</a>
+		<a class="btn btn-small btn-success" href="{{ URL::to('admin/trash') }}">Trash</a>
 		<table>
 			@foreach($page as $key => $value)
 		        <tr>

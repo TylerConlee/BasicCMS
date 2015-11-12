@@ -2,7 +2,9 @@
 	<head>
 	</head>
 	<body>
+		<a class="btn btn-small btn-success" href="{{ URL::to('admin') }}">Admin</a>
 		<a class="btn btn-small btn-success" href="{{ URL::to('page/create') }}">Create Page</a>
+
 		<table>
 			@foreach($page as $key => $value)
 		        <tr>
@@ -13,9 +15,8 @@
 		            <td>{{ $value->created_at }}</td>
 		            <td>
 
-		                {!! Form::open(array('url' => 'page/' . $value->id, 'class' => 'pull-right')) !!}
-		                    {!! Form::hidden('_method', 'DELETE') !!}
-		                    {!! Form::submit('Delete this Page', array('class' => 'btn btn-warning')) !!}
+		                {!! Form::open(array('url' => 'page/' . $value->id . '/delete', 'class' => 'pull-right')) !!}
+		                    {!! Form::submit('Permadelete this Page', array('class' => 'btn btn-warning')) !!}
 		                {!! Form::close() !!}
 		            </td>
 		            <td>
@@ -23,7 +24,7 @@
 		            </td>
 		            <td>
 
-		                <a class="btn btn-small btn-info" href="{{ URL::to('page/' . $value->id . '/edit') }}">Edit this Page</a>
+		                <a class="btn btn-small btn-info" href="{{ URL::to('page/' . $value->id . '/restore') }}">Restore this Page</a>
 
 		            </td>
 		        </tr>
