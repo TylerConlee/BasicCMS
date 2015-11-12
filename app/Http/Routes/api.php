@@ -11,5 +11,6 @@
 |
 */
 Route::get('admin', 'PageController@index');
+Route::get('admin/trash', 'PageController@trash');
 Route::get('{slug}', 'PageController@show');
 Route::resource('page', 'PageController', ['except' => ['index','show']]);

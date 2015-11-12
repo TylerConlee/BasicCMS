@@ -43,6 +43,7 @@ class PageController extends ApiController
         $page = new Page;
         $page->title = $request->title;
         $page->slug = str_slug($request->title, "-");
+        $page->author = $request->author;
         $page->accesslevel = $request->accesslevel;
         $page->body = $request->body;
         $page->save();
@@ -85,6 +86,7 @@ class PageController extends ApiController
         $page = Page::find($id);
         $page->title = $request->title;
         $page->slug = str_slug($request->title, "-");
+        $page->author = $request->author;
         $page->accesslevel = $request->accesslevel;
         $page->body = $request->body;
         $page->save();
