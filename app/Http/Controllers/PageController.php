@@ -1,6 +1,6 @@
 <?php
 
-namespace SummitCMS\Http\Controllers\Api;
+namespace SummitCMS\Http\Controllers;
 
 use Illuminate\Http\Request;
 use SummitCMS\Page;
@@ -11,6 +11,9 @@ use View;
 
 class PageController extends ApiController
 {
+    protected function getSkin(){
+        return \Config::get('app.skin');
+    }
 
     /**
      * Display a listing of all pages, similar to the overview page of a blog, or a sitemap.
@@ -20,7 +23,8 @@ class PageController extends ApiController
     public function index()
     {
         $pages = Page::all();
-        return view('page.index', ['page' => $pages]);
+        $skin = $this->getSkin();
+        return view($skin.'.index', ['page' => $pages]);
     }
     /**
      * Display a listing of all pages, similar to the overview page of a blog, or a sitemap.
@@ -30,7 +34,8 @@ class PageController extends ApiController
     public function admin()
     {
         $pages = Page::all();
-        return view('page.admin', ['page' => $pages]);
+        $skin = $this->getSkin();
+        return view($skin.'.admin', ['page' => $pages]);
     }
 
     /**
@@ -40,7 +45,8 @@ class PageController extends ApiController
      */
     public function create()
     {
-        return View::make('page.create');
+        $skin = $this->getSkin();
+        return View::make($skin.'.create');
     }
 
     /**
@@ -70,7 +76,8 @@ class PageController extends ApiController
     public function show($slug)
     {
         $page = Page::where('slug', $slug)->firstOrFail();
-        return view('page.show', ['page' => $page]);
+        $skin = $this->getSkin();
+        return view($skin.'.show', ['page' => $page]);
     }
 
     /**
@@ -82,7 +89,8 @@ class PageController extends ApiController
     public function edit($id)
     {
         $page = Page::findOrFail($id);
-        return view('page.edit', ['page' => $page]);
+        $skin = $this->getSkin();
+        return view($skin.'.edit', ['page' => $page]);
     }
 
     /**
@@ -114,6 +122,7 @@ class PageController extends ApiController
     {
         $page = Page::find($id);
         $page->delete();
+        $skin = $this->getSkin();
         return redirect('admin');
     }
 
@@ -125,7 +134,8 @@ class PageController extends ApiController
     public function trash() {
         $page = Page::onlyTrashed()
                 ->get();
-        return view('page.trash', ['page' => $page]);
+        $skin = $this->getSkin();
+        return view($skin.'.trash', ['page' => $page]);
     }
 
 

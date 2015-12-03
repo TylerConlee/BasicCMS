@@ -1,4 +1,7 @@
-@extends('page.public')
+<?php
+$skin = \Config::get('app.skin');
+?>
+@extends($skin.'.public')
 @section('title', 'Create Page')
 @section('content')
 	<div class="row">
