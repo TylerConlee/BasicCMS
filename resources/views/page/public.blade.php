@@ -18,10 +18,6 @@
                 <!-- Right Nav Section -->
                 <ul class="right">
                     <li class=""><a href="{{ URL::to('admin') }}">Admin</a></li>
-                    <li class="divider"></li>
-                    <li class=""><a href="{{ URL::to('page/create') }}">Create Page</a></li>
-                    <li class="divider"></li>
-                    <li class=""><a href="{{ URL::to('admin/trash') }}">Trash</a></li>
 
                 </ul>
 

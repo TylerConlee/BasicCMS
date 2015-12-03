@@ -1,4 +1,4 @@
-@extends('page.master')
+@extends('page.public')
 @section('title', 'Create Page')
 @section('content')
 	<div class="row">

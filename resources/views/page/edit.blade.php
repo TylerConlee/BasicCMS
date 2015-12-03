@@ -1,8 +1,9 @@
-<html>
-	<head>
-	</head>
-	<body>
-		<a class="btn btn-small btn-success" href="{{ URL::to('admin') }}">Admin</a>
+@extends('page.master')
+@section('title', 'Admin')
+@section('content')
+		<div class="row">
+			<div class="large-12 columns">
+
 		{!! Form::model($page, array('route' => array('page.update', $page->id), 'method' => 'PUT')) !!}
 			<div>
 				{!! Form::label('title', 'Title') !!}
@@ -23,6 +24,4 @@
 			{!! Form::submit('Edit')!!}
 
 		{!! Form::close()!!}
-	</body>
-
-</html>
+@endsection

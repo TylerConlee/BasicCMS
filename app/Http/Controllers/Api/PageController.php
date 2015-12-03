@@ -11,6 +11,7 @@ use View;
 
 class PageController extends ApiController
 {
+
     /**
      * Display a listing of all pages, similar to the overview page of a blog, or a sitemap.
      *
@@ -20,6 +21,16 @@ class PageController extends ApiController
     {
         $pages = Page::all();
         return view('page.index', ['page' => $pages]);
+    }
+    /**
+     * Display a listing of all pages, similar to the overview page of a blog, or a sitemap.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function admin()
+    {
+        $pages = Page::all();
+        return view('page.admin', ['page' => $pages]);
     }
 
     /**
