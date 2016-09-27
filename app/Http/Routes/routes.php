@@ -10,7 +10,10 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'PageController@index');
+Route::get('admin', 'PageController@admin');
+Route::get('admin/trash', 'PageController@trash');
+Route::get('{slug}', 'PageController@show');
+Route::get('page/{id}/restore', 'PageController@restore');
+Route::post('page/{id}/delete', 'PageController@delete');
+Route::resource('page', 'PageController', ['except' => ['show', 'restore', 'delete']]);
