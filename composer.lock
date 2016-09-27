@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5953dd5a465597dd6bfb06eb66877363",
-    "content-hash": "09a48dc7cddb0f6d91b8114087caaf70",
+    "hash": "24fcd030ecf9ccb5b2089245f9c49459",
+    "content-hash": "e8f1ffcc80b0c11f2f7a3a9cff385d1c",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -261,6 +261,7 @@
                     "email": "taylorotwell@gmail.com"
                 }
             ],
+            "abandoned": "laravelcollective/html",
             "time": "2015-01-01 16:31:18"
         },
         {

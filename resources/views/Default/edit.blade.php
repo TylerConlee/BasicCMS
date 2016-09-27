@@ -1,4 +1,4 @@
-@extends('page.master')
+@extends('Default.master')
 @section('title', 'Admin')
 @section('content')
 		<div class="row">
