@@ -1,4 +1,4 @@
-## Basic Content Management System
+## Basic Content Management System [![Build Status](https://travis-ci.org/TylerConlee/BasicCMS.svg?branch=master)](https://travis-ci.org/TylerConlee/BasicCMS)
 
 This is a basic content management system written in PHP using the Laravel 
 framework. Currently, the CMS uses Laravel 5.1.
