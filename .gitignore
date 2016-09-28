@@ -3,6 +3,5 @@
 Homestead.yaml
 Homestead.json
 composer.lock
-Procfile
 .env
 /storage/database.sqlite
