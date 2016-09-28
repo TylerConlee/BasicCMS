@@ -8,7 +8,6 @@
         "php": ">=5.5.9",
         "laravel/framework": "5.1.*",
         "illuminate/html": "5.0.*",
-        "ext-pdo_sqlite": "*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
