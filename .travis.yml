@@ -2,5 +2,6 @@ language: php
 php:
 - '5.6'
 install:
+- php artisan clear-compiled
 - composer dump-autoload -o
 - composer install
