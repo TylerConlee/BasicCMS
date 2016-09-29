@@ -4,4 +4,4 @@ php:
 install:
 - php artisan clear-compiled
 - composer dump-autoload -o
-- composer install
+- composer install --no-scripts
