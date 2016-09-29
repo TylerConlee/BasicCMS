@@ -37,10 +37,11 @@ For example, the ClearDB URL provided on Heroku's documenation looks like this:
 `mysql://adffdadf2341:adf4234@us-cdbr-east.cleardb.com/heroku_db?reconnect=true`
 
 In this URL, you'll need this information:
-**DB_USERNAME:**  adffdadf2341
-**DB_PASSWORD:**  adf4234
-**DB_HOST:** us-cdbr-east.cleardb.com
-**DB_DATABASE:** heroku_db
+
+- **DB_USERNAME:**  adffdadf2341
+- **DB_PASSWORD:**  adf4234
+- **DB_HOST:** us-cdbr-east.cleardb.com
+- **DB_DATABASE:** heroku_db
 
 3) Configure Heroku's environment variables with these values:
 `heroku config:set DB_USERNAME=adffdadf2341`
