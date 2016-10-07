@@ -18,7 +18,7 @@ Laravel's minimum requirements are:
 Most virtual machines *should* have these extensions installed already. You 
 must also have [Composer](http://getcomposer.org/) installed as well.
 
-To install the CMS itself, clone this repo and run `composer install`, followed 
+To install the CMS itself, clone this repo, rename the `.env.example` to `.env` and run `composer install`, followed 
 by `php artisan key:generate`. This will install the necessary dependencies for
 Laravel to work, as well as generate a unique application key for the app.
 

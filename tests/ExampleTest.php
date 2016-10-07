@@ -16,4 +16,10 @@ class ExampleTest extends TestCase
         $this->visit('/')
              ->see('Page ID');
     }
+
+    public function testCreatePage()
+    {
+        $this->visit('/page/create')
+            ->see('Title');
+    }
 }
