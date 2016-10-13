@@ -44,6 +44,7 @@ In this URL, you'll need this information:
 - **DB_DATABASE:** heroku_db
 
 3) Configure Heroku's environment variables with these values:
+
 `heroku config:set DB_USERNAME=adffdadf2341`
 `heroku config:set DB_PASSWORD=adf4234`
 `heroku config:set DB_HOST=us-cdbr-east.cleardb.com`
