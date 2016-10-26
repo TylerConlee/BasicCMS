@@ -1,9 +1,9 @@
 # Installing the Test Application
 
-- **Prerequisites**
-    - **Homestead**
-- **Installing the CMS**
-- **Installing New Relic**
+- [Prerequisites](#prerequisites)
+    - [Homestead](#homestead)
+- [Installing the CMS](#installing-the-cms)
+- [Installing New Relic](#installing-new-relic)
 
 The BasicCMS content management system is, as the name may suggest, a basic
 application designed to quickly get a content management system up and running
@@ -92,3 +92,4 @@ address each time.
 With Homestead installed, getting your virtual machine is as easy as running `vagrant up`, followed by `vagrant ssh` to access the command line of the virtual machine. 
 
 ## Installing the CMS
+
