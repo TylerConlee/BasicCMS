@@ -95,7 +95,10 @@ With Homestead installed, getting your virtual machine is as easy as running `va
 
 This installation method proceeds based off of the assumption that you've follwoed the above steps and are currently using Laravel Homestead as your Vagrant box for your virtual machine. 
 
-After Homestead has been configured, getting the BasicCMS up and running should be fairly quick and painless. To start, clone the BasicCMS repository into the same folder that you've configured Homestead to map as the folder served by the web server. In our example earlier, that was `~/Repos/BasicCMS`
+After Homestead has been configured, getting the BasicCMS up and running should 
+be fairly quick and painless. To start, clone the BasicCMS repository into the 
+same folder that you've configured Homestead to map as the folder served by the 
+web server. In our example earlier, that was `~/Repos/BasicCMS`
 
 ```
 folders:
@@ -105,7 +108,10 @@ folders:
 
 To clone the repo, run `git clone https://github.com/TylerConlee/BasicCMS.git <path-to-folder-here>`
 
-After cloning the repository to your local system, rename `.env.example` to `.env`. This will create the environment variables that the Laravel app utilizes to run the application properly. The important values to ensure that are in this `.env` file are:
+After cloning the repository to your local system, rename `.env.example` to 
+`.env`. This will create the environment variables that the Laravel app 
+utilizes to run the application properly. The important values to ensure that 
+are in this `.env` file are:
 
 ```
 APP_KEY=
@@ -115,14 +121,20 @@ DB_PASS=
 DB_TABLE= 
 ```
 
-Once the `.env` file has been established, a new application key needs to be set to allow Laravel to run properly. To create a new application key, run:
+Once the `.env` file has been established, a new application key needs to be 
+set to allow Laravel to run properly. To create a new application key, run:
 
 ```
 php artisan key:generate
 ```
 
-This will run the `artisan` command line interface tool that comes with Laravel, and will automatically generate a new, unique application key. This key will be saved to the `.env` file. 
+This will run the `artisan` command line interface tool that comes with Laravel,
+ and will automatically generate a new, unique application key. This key will 
+ be saved to the `.env` file. 
 
-Finally, running `composer install` will run through the Laravel installation process, downloading any dependencies needed, configuring the class autoloading, and any other tasks needed to set up Laravel for the first time. 
+Finally, running `composer install` will run through the Laravel installation 
+process, downloading any dependencies needed, configuring the class autoloading,
+ and any other tasks needed to set up Laravel for the first time. 
 
-You should be able to access the application now at `homestead.app` within your browser.
+You should be able to access the application now at `homestead.app` within your 
+browser.
