@@ -138,3 +138,46 @@ process, downloading any dependencies needed, configuring the class autoloading,
 
 You should be able to access the application now at `homestead.app` within your 
 browser.
+
+## Installing New Relic
+
+The New Relic installation process is designed to be as straight forward as possible. Again, this installation assumes that you're using the Homestead Vagrant box that was set up earlier in this document. To start, ensure that you're within your virtual machine by running:
+
+```
+vagrant ssh
+```
+
+This logs you in to the virtual machine's command line interface. The Homestead Vagrant box runs Ubuntu 16.04 LTS. With that in mind, the [installation instructions for Ubuntu](https://docs.newrelic.com/docs/agents/php-agent/installation/php-agent-installation-ubuntu-debian) are a great starting place. 
+
+First, add the New Relic repository to the list of repositories that your VM will access when looking for a package:
+
+```
+echo 'deb http://apt.newrelic.com/debian/ newrelic non-free' | sudo tee /etc/apt/sources.list.d/newrelic.list
+```
+
+Note that this command doesn't inherently install anything - simply adds the New Relic repo to the list of places that Ubuntu will search through when it's told to go find something to install. 
+
+Next, add the New Relic public key to `apt`. This will register the New Relic repo with your instance of Ubuntu, telling it that the New Relic repository is who it says it is, and that it can be trusted. Without this command, you may see an error message about a lack of a public key upon installation.
+
+```
+wget -O- https://download.newrelic.com/548C16BF.gpg | sudo apt-key add -
+```
+
+Once the repo has been added to the list of repos on the system, and the system has been told it can trust the New Relic repository, refreshing the list of packages available is necessary to make sure that the right packages are found.
+
+```
+sudo apt-get update
+```
+
+To install the agent, the next two commands tell Ubuntu to install the New Relic PHP Agent from the New Relic repo, and then run the installation process for initializing the agent.
+
+```
+sudo apt-get install newrelic-php5
+sudo newrelic-install install
+```
+
+Note that the PHP Agent uses `newrelic-php5` on both PHP 7 AND PHP 5 - there isn't a different package for PHP7 support, as it's all contained within the same package.  
+
+The `newrelic-install install` command is the most important part of this process, as it sets the license key and default application name for the installation. 
+
+Finally, restart the web server (Apache, PHP-FPM, nginx, etc) to restart PHP. Restarting PHP will reload all of the PHP modules and extensions, including the newly installed PHP Agent module. Once this module has been reloaded, data should start to report to your application within APM. If not, you can [begin troubleshooting with common issues](https://docs.newrelic.com/docs/agents/php-agent/troubleshooting/no-data-appears-php).
