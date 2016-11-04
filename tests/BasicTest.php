@@ -25,6 +25,6 @@ class BasicTest extends TestCase
     public function testTrashPage()
     {
         $this->visit('/admin/trash')
-            ->see('Actions')
+            ->see('Actions');
     }
 }
