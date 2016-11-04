@@ -4,7 +4,7 @@ use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class ExampleTest extends TestCase
+class BasicTest extends TestCase
 {
     /**
      * A basic functional test example.
@@ -21,5 +21,10 @@ class ExampleTest extends TestCase
     {
         $this->visit('/page/create')
             ->see('Title');
+    }
+    public function testTrashPage()
+    {
+        $this->visit('/admin/trash')
+            ->see('Actions')
     }
 }
