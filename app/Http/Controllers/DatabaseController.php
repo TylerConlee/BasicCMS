@@ -22,6 +22,22 @@ class DatabaseController extends Controller
             DB::table('users')->insert(['name' => 'test', 'email' => 'john@example.com' . $i, 'password' => $i, 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s') ]);
         }
     }
+    public function delete()
+    {
+
+        for ($i=0; $i<100; $i++) {
+            DB::table('users')->delete();
+        }
+    }
+    public function select()
+    {
+
+        for ($i=0; $i<100; $i++) {
+            $user = DB::table('users')->where('email', 'john@example.com' . $i)->get();
+            var_dump($user);
+            echo "<br>";
+        }
+    }
 
     /**
      * Show the form for creating a new resource.
