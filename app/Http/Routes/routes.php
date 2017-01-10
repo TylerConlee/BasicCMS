@@ -13,6 +13,9 @@
 Route::get('/', 'PageController@index');
 Route::get('admin', 'PageController@admin');
 Route::get('admin/trash', 'PageController@trash');
+Route::get('database/insert', 'DatabaseController@index');
+Route::get('database/delete', 'DatabaseController@delete');
+Route::get('database/select', 'DatabaseController@select');
 Route::get('{slug}', 'PageController@show');
 Route::get('page/{id}/restore', 'PageController@restore');
 Route::post('page/{id}/delete', 'PageController@delete');
