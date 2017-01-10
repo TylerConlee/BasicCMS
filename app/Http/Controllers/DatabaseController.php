@@ -18,7 +18,7 @@ class DatabaseController extends Controller
     public function index()
     {
 
-        for ($i=0; $i<100; $i++) {
+        for ($i=0; $i<9999; $i++) {
             DB::table('users')->insert(['name' => 'test', 'email' => 'john@example.com' . $i, 'password' => $i, 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s') ]);
         }
     }
@@ -27,6 +27,7 @@ class DatabaseController extends Controller
 
         for ($i=0; $i<100; $i++) {
             DB::table('users')->delete();
+            sleep(5);
         }
     }
     public function select()
@@ -36,6 +37,7 @@ class DatabaseController extends Controller
             $user = DB::table('users')->where('email', 'john@example.com' . $i)->get();
             var_dump($user);
             echo "<br>";
+            sleep(1);
         }
     }
 
